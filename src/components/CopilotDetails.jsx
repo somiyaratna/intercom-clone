@@ -4,9 +4,9 @@ import DetailsItem from "./DetailsItem";
 
 export default function CopilotDetails() {
   return (
-    <div className="px-4 w-full">
+    <div className="px-4 w-full text-xs md:text-sm lg:text-base ">
       {/* Assignee and Team */}
-      <div className="flex gap-10 pt-4 justify-between mb-3 pe-8 border-t-[1px] border-gray-300">
+      <div className="flex gap-10 pt-4 justify-between mb-3 pe-8">
         <p>Assignee</p>
         <div className="flex items-center gap-2">
           <img src="/profile.jpeg" alt="" className="h-5 w-5 rounded-full" />

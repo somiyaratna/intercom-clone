@@ -8,13 +8,13 @@ export default function Copilot() {
   const [activeTab, setActiveTab] = useState("copilot");
   return (
     <div
-      className={`h-full relative border-l-[1px] border-gray-100 px-3 rounded-e-2xl overflow-hidden text-xs lg:text-sm ${
+      className={`h-full min-h-fit border-l-[1px] flex-grow flex flex-col border-gray-100 px-3 rounded-e-2xl overflow-hidden text-xs lg:text-sm ${
         activeTab === "copilot"
           ? "bg-gradient-to-b from-blue-50 via-white to-rose-200"
           : ""
       } `}
     >
-      <div className="flex transition-all duration-300 absolute top-0 left-0 right-0 px-4 pt-3 items-center gap-6 font-semibold pb-2">
+      <div className="flex transition-all duration-300 px-1 pt-3 items-center gap-6 font-semibold pb-2">
         <button
           onClick={() => setActiveTab("copilot")}
           className={`hover:cursor-pointer flex items-center gap-1 pb-3 ${
@@ -48,7 +48,11 @@ export default function Copilot() {
           <LuPanelLeft strokeWidth={3} size={15} />
         </div>
       </div>
-      <div className="h-full w-full flex flex-col flex-grow justify-center items-center">
+      <div
+        className={`w-full flex flex-col justify-center items-center ${
+          activeTab === "copilot" && "flex-grow"
+        } pb-4 `}
+      >
         {activeTab === "copilot" && <CopilotChat />}
 
         {activeTab === "details" && <CopilotDetails />}

@@ -17,11 +17,11 @@ export default function ChatWidget() {
         className="min-w-full placeholder:text-sm placeholder:text-#111827 bg-transparent border-none outline-none resize-none h-16 text-sm text-#111827"
       ></textarea>
       <div className="flex items-center gap-2 p-2">
-        <FaBoltLightning size={12} />
+        <FaBoltLightning size={12} className="hover:cursor-pointer" />
         <span className="text-xs font-light mb-1">|</span>
-        <FaBookmark size={12} />
-        <FaSmile size={12} />
-        <button className="flex items-center gap-3 ml-auto text-gray-500">
+        <FaBookmark size={12} className="hover:cursor-pointer" />
+        <FaSmile size={12} className="hover:cursor-pointer" />
+        <button className="flex items-center gap-3 ml-auto text-gray-500 hover:cursor-pointer">
           Send <FaAngleDown size={12} />
         </button>
       </div>
