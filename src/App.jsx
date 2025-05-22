@@ -7,7 +7,7 @@ import { messages } from "./static-data";
 function App() {
   return (
     <main className="min-h-screen transition-colors duration-300 flex justify-center items-center min-w-fit mx-auto max-w-[1280px]">
-      <div className="grid p-2 h-[90vh] min-w-full rounded-lg  grid-cols-[20%_50%_30%] bg-[var(--bg-color)] text-[var(--text-color)]">
+      <div className="grid h-[90vh] min-w-full rounded-lg  grid-cols-[20%_50%_30%] bg-[var(--bg-color)] text-[var(--text-color)]">
         <Inbox messages={messages} />
         <Chat />
         <Copilot />

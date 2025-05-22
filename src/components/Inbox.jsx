@@ -3,7 +3,7 @@ import InboxMessage from "./InboxMessage";
 
 export default function Inbox({ messages }) {
   return (
-    <div className="px-4">
+    <div className="px-4 py-2">
       <h1 className="text-xl md:text-2xl font-semibold">Your Inbox</h1>
       <div className="flex justify-between mt-8">
         <div className="flex items-center gap-1 text-sm font-semibold">
