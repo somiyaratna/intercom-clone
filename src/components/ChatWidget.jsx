@@ -1,4 +1,4 @@
-import { FaAngleDown, FaAngleUp, FaBookmark, FaSmile } from "react-icons/fa";
+import { FaAngleDown, FaBookmark, FaSmile } from "react-icons/fa";
 import { FaBoltLightning } from "react-icons/fa6";
 import { MdChat } from "react-icons/md";
 
@@ -14,15 +14,15 @@ export default function ChatWidget() {
         name="chat-widget"
         id="chat-widget"
         placeholder="Use ⌘K for shortcuts"
-        className="min-w-full placeholder:text-sm placeholder:text-[var(--text-color)] bg-transparent border-none outline-none resize-none h-16 text-sm text-[var(--text-color)]"
+        className="min-w-full placeholder:text-sm placeholder:text-#111827 bg-transparent border-none outline-none resize-none h-16 text-sm text-#111827"
       ></textarea>
-      <div className="flex items-center  gap-3 p-2">
+      <div className="flex items-center gap-2 p-2">
         <FaBoltLightning size={12} />
-        <span className="text-xs">|</span>
+        <span className="text-xs font-light mb-1">|</span>
         <FaBookmark size={12} />
         <FaSmile size={12} />
-        <button className="flex items-center gap-1 ml-auto">
-          Send | <FaAngleUp size={12} />
+        <button className="flex items-center gap-3 ml-auto text-gray-500">
+          Send <FaAngleDown size={12} />
         </button>
       </div>
     </div>

@@ -1,51 +1,57 @@
-import React, { useState } from "react";
-import { FaAngleUp, FaArrowUp, FaIntercom } from "react-icons/fa";
+import { useState } from "react";
+import { FaIntercom } from "react-icons/fa";
+import { LuPanelLeft, LuSquareArrowOutUpRight } from "react-icons/lu";
+import CopilotChat from "./CopilotChat";
+import CopilotDetails from "./CopilotDetails";
 
 export default function Copilot() {
   const [activeTab, setActiveTab] = useState("copilot");
   return (
-    <div className="h-full shadow-lg px-3 py-3 rounded-e-2xl">
-      <div className="flex items-center gap-6 font-semibold pb-2 border-b-[1px] border-gray-400">
+    <div
+      className={`h-full relative border-l-[1px] border-gray-100 px-3 rounded-e-2xl overflow-hidden text-xs lg:text-sm ${
+        activeTab === "copilot"
+          ? "bg-gradient-to-b from-blue-50 via-white to-rose-200"
+          : ""
+      } `}
+    >
+      <div className="flex transition-all duration-300 absolute top-0 left-0 right-0 px-4 pt-3 items-center gap-6 font-semibold pb-2">
         <button
           onClick={() => setActiveTab("copilot")}
-          className={`hover:cursor-pointer`}
+          className={`hover:cursor-pointer flex items-center gap-1 pb-3 ${
+            activeTab === "copilot"
+              ? "bg-gradient-to-r from-blue-700 to-rose-300 bg-clip-text text-transparent border-blue-700 z-10 border-b-2"
+              : "text-gray-400"
+          }`}
         >
-          AI Copilot
+          <FaIntercom
+            size={12}
+            className={`hidden md:block ${
+              activeTab === "copilot" ? "text-blue-700" : "text-gray-400"
+            }`}
+          />
+          <span>AI Copilot</span>
         </button>
         <button
           onClick={() => setActiveTab("details")}
-          className={`hover:cursor-pointer`}
+          className={`hover:cursor-pointer pb-3 ${
+            activeTab === "details"
+              ? "bg-gradient-to-r z-10 from-blue-700 to-rose-300 bg-clip-text text-transparent border-b-2 border-blue-700"
+              : "text-gray-400"
+          }`}
         >
           Details
         </button>
+        <div className="ml-auto me-2 mb-3 text-gray-800 flex items-center gap-4">
+          {activeTab === "details" && (
+            <LuSquareArrowOutUpRight size={15} strokeWidth={3} />
+          )}
+          <LuPanelLeft strokeWidth={3} size={15} />
+        </div>
       </div>
       <div className="h-full w-full flex flex-col flex-grow justify-center items-center">
-        {activeTab === "copilot" && (
-          <div className="flex flex-col flex-grow justify-center items-center w-full px-4">
-            {/* Centered content */}
-            <div className="flex flex-col items-center justify-center flex-grow text-center">
-              <FaIntercom size={40} />
-              <p className="font-semibold mt-2">Hi, I'm Fin AI Copilot</p>
-              <p className="text-sm mt-1">
-                Ask me anything about this conversation.
-              </p>
-            </div>
+        {activeTab === "copilot" && <CopilotChat />}
 
-            {/* Bottom textarea */}
-            <div className="flex items-center gap-2 my-10 rounded-lg shadow-xl mt-auto w-full">
-              <textarea
-                name="copilot"
-                id="copilot-question"
-                placeholder="Ask a question..."
-                className="flex resize-none w-full h-10 border-none outline-none border px-3 py-2 placeholder:text-sm"
-              ></textarea>
-
-              <FaArrowUp className="me-4 text-gray-500 hover:cursor-pointer" />
-            </div>
-          </div>
-        )}
-
-        {activeTab === "details" && <div>Details</div>}
+        {activeTab === "details" && <CopilotDetails />}
       </div>
     </div>
   );
