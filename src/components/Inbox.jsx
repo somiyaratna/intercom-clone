@@ -1,7 +1,7 @@
 import { FaChevronDown } from "react-icons/fa";
 import InboxMessage from "./InboxMessage";
 
-export default function Inbox({ messages }) {
+export default function Inbox({ messages, activeChatId, setActiveChatId }) {
   return (
     <div className="py-2 px-4 ">
       <h1 className=" text-xl md:text-2xl font-semibold">Your Inbox</h1>
@@ -16,10 +16,22 @@ export default function Inbox({ messages }) {
             </div>
           </div>
           <ul className="my-2">
-            {messages.map((message) => (
-              <InboxMessage key={message.name} {...message} />
-            ))}
-          </ul>{" "}
+            {messages.map((msg) => {
+              const lastMessage = msg.messages?.[msg.messages.length - 1];
+              return (
+                <InboxMessage
+                  key={msg.chatId}
+                  name={msg.name}
+                  message={lastMessage?.message || ""}
+                  sentVia={lastMessage?.sentVia || ""}
+                  time={lastMessage?.timestamp || ""}
+                  read={msg.read}
+                  isActive={msg.chatId === activeChatId}
+                  onClick={() => setActiveChatId(msg.chatId)}
+                />
+              );
+            })}
+          </ul>
         </>
       ) : (
         <p className="mt-4">No messages as of yet</p>

@@ -2,8 +2,23 @@ import { FaRegWindowClose } from "react-icons/fa";
 import ChatWidget from "./ChatWidget";
 import { BsThreeDots } from "react-icons/bs";
 import { GiNightSleep } from "react-icons/gi";
+import ChatMessage from "./ChatMessage";
 
-export default function Chat({ name = "Chat" }) {
+export default function Chat({
+  name = "Chat",
+  isGenerating,
+  input,
+  setInput,
+  chat,
+  handleSend,
+}) {
+  if (!chat) {
+    return (
+      <div className="p-4">
+        <p className="text-gray-500">Select a chat to view messages</p>
+      </div>
+    );
+  }
   return (
     <div className="py-2 px-4 rounded-xl bg-[#fcfcfc] h-full flex flex-col justify-between">
       <div className="flex items-center justify-between">
@@ -24,7 +39,12 @@ export default function Chat({ name = "Chat" }) {
           </button>
         </div>
       </div>
-      <ChatWidget />
+      <ChatMessage
+        messages={chat?.messages}
+        input={input}
+        isGenerating={isGenerating}
+      />
+      <ChatWidget setInput={setInput} input={input} handleSend={handleSend} />
     </div>
   );
 }

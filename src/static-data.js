@@ -2,24 +2,21 @@ import { BsClipboard2CheckFill } from "react-icons/bs";
 import { FaAngleDown, FaAngleUp, FaPlus } from "react-icons/fa";
 import { RiArrowRightUpLine, RiStackshareLine } from "react-icons/ri";
 
-export const messages = [
+export const staticMessages = [
   {
-    name: "Luis Easton",
-    sentVia: "Github",
-    message: "Hello, how are you?",
-    time: "45m",
-  },
-  {
-    name: "Ivan Rakitic",
-    sentVia: "Nike",
-    message: "Hi there, I have a question.",
-    time: "30m",
-  },
-  {
-    name: "Andres Iniesta",
-    sentVia: "New York",
-    message: "Good morning, let me know when the stock will be available.",
-    time: "28m",
+    chatId: "chat-001",
+    name: "John Doe",
+    sentVia: "GitHub",
+    messages: [
+      {
+        sender: "John Doe",
+        from: "user",
+        message: "I’m having trouble connecting my account.",
+        timestamp: "2025-05-24T14:30:00Z",
+        sentVia: "GitHub",
+      },
+    ],
+    read: false,
   },
 ];
 
