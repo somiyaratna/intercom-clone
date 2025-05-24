@@ -1,8 +1,8 @@
 # 🧠 Fin AI Copilot Chat Widget
 
-A lightweight and responsive React-based chat widget that allows users to ask questions and receive real-time answers powered by an AI backend (via `finCopilotAnswer`). Built with an intuitive UI, smart key handling (Enter to send, Shift+Enter for new lines), and suggested question functionality.
+🔗 **Live Demo:** [https://intercom-clone-psi.vercel.app/](https://intercom-clone-psi.vercel.app/)
 
-![Chat UI Screenshot](./screenshot.png) <!-- Optional: Add a screenshot of your UI -->
+A lightweight and responsive React-based chat widget that allows users to ask questions and receive real-time answers powered by an AI backend (via `finCopilotAnswer`). Built with an intuitive UI, smart key handling (Enter to send, Shift+Enter for new lines), and suggested question functionality.
 
 ---
 
