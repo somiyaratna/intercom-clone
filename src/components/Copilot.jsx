@@ -6,6 +6,7 @@ import CopilotDetails from "./CopilotDetails";
 
 export default function Copilot() {
   const [activeTab, setActiveTab] = useState("copilot");
+
   return (
     <div
       className={`h-full min-h-fit border-l-[1px] flex-grow flex flex-col border-gray-100 px-3 rounded-e-2xl overflow-hidden text-xs lg:text-sm ${

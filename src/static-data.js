@@ -18,7 +18,48 @@ export const staticMessages = [
     ],
     read: false,
   },
+  {
+    chatId: "chat-002",
+    name: "Ivan Rakitic",
+    sentVia: "Nike",
+    messages: [
+      {
+        sender: "Ivan Rakitic",
+        from: "user",
+        message: "Hi there, I have a question regarding the product.",
+        timestamp: "2025-05-21T14:20:00Z",
+        sentVia: "Nike",
+      },
+    ],
+    read: false,
+  },
+  {
+    chatId: "chat-003",
+    name: "Liam",
+    sentVia: "New York",
+    messages: [
+      {
+        sender: "Liam",
+        from: "user",
+        message: "Good morning, I want to issue a refund for my order.",
+        timestamp: "2025-05-24T14:30:00Z",
+        sentVia: "New York",
+      },
+    ],
+    read: false,
+  },
 ];
+
+const questions = [
+  "How do I get a refund?",
+  "Can I cancel my order?",
+  "How long does a refund take?",
+  "What is the average delivery time?",
+  "Can we change delivery location after placing order?",
+];
+
+export const randomStaticQuestion =
+  questions[Math.floor(Math.random() * questions.length)];
 
 export const bgColors = [
   "bg-red-500",

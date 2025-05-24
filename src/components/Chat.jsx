@@ -20,7 +20,7 @@ export default function Chat({
     );
   }
   return (
-    <div className="py-2 px-4 rounded-xl bg-[#fcfcfc] h-full flex flex-col justify-between">
+    <div className="py-2 px-4 rounded-xl bg-[#fcfcfc] h-full flex flex-col justify-between overflow-y-auto">
       <div className="flex items-center justify-between">
         <h1 className="text-xl md:text-2xl font-semibold">{name}</h1>
         <div className="flex gap-2">
@@ -44,7 +44,12 @@ export default function Chat({
         input={input}
         isGenerating={isGenerating}
       />
-      <ChatWidget setInput={setInput} input={input} handleSend={handleSend} />
+      <ChatWidget
+        isGenerating={isGenerating}
+        setInput={setInput}
+        input={input}
+        handleSend={handleSend}
+      />
     </div>
   );
 }

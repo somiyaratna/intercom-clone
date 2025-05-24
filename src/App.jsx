@@ -40,27 +40,50 @@ function App() {
     setInput("");
 
     setIsGenerating(true);
-    const aiReply = await chatWithAI(userMessage);
-    const botEntry = {
-      chatId,
-      sender: "Fin Assistant",
-      message: aiReply,
-      timestamp: new Date().toISOString(),
-      sentVia: "Fin AI",
-      from: "user",
-    };
-    setMessages((prev) =>
-      prev.map((chat) =>
-        chat.chatId === chatId
-          ? {
-              ...chat,
-              messages: [...(chat.messages || []), botEntry],
-            }
-          : chat
-      )
-    );
-
-    setIsGenerating(false);
+    try {
+      const aiReply = await chatWithAI(userMessage);
+      const botEntry = {
+        chatId,
+        sender: "Fin Assistant",
+        message: aiReply,
+        timestamp: new Date().toISOString(),
+        sentVia: "Fin AI",
+        from: "user",
+      };
+      setMessages((prev) =>
+        prev.map((chat) =>
+          chat.chatId === chatId
+            ? {
+                ...chat,
+                messages: [...(chat.messages || []), botEntry],
+              }
+            : chat
+        )
+      );
+    } catch (error) {
+      setMessages((prev) =>
+        prev.map((chat) =>
+          chat.chatId === chatId
+            ? {
+                ...chat,
+                messages: [
+                  ...(chat.messages || []),
+                  {
+                    chatId,
+                    sender: "Fin Assistant",
+                    message: "Error: " + error.message,
+                    timestamp: new Date().toISOString(),
+                    sentVia: "Fin AI",
+                    from: "user",
+                  },
+                ],
+              }
+            : chat
+        )
+      );
+    } finally {
+      setIsGenerating(false);
+    }
   }
 
   return (

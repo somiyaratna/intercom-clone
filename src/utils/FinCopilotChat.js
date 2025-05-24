@@ -1,6 +1,6 @@
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
-export async function chatWithAI(userMessage) {
+export async function finCopilotAnswer(userQuestion) {
   const response = await fetch(GROQ_API_URL, {
     method: "POST",
     headers: {
@@ -13,11 +13,11 @@ export async function chatWithAI(userMessage) {
         {
           role: "system",
           content:
-            "You are a customer who replies with a short, one-liner question or feedback directly related to the company message you receive. Be concise and relevant.",
+            "You are a helpful business assistant who provides clear, concise and brief answers about business policies such as refunds, returns, and purchases.",
         },
         {
           role: "user",
-          content: userMessage,
+          content: userQuestion,
         },
       ],
     }),

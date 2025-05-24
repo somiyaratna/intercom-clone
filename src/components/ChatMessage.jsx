@@ -34,7 +34,6 @@ export default function ChatMessage({ messages, isGenerating }) {
           </div>
         </div>
       )}
-      c
     </div>
   );
 }
